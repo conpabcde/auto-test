@@ -22,4 +22,6 @@ requests: Should have a name and belong to a company with a slogan
 *** Test Cases ***
 API test: get Menu
   Create Session  tdc                      https://beta.techdesignlink.com
-  ${Menu}=        GET On Session           tdc                   /config/getMenu       expected_status=200
+  ${resp}=        GET On Session           tdc                   /config/getMenu       expected_status=200
+  ${json}=        Dumps                    ${resp.json()}
+  Log to Console  ${json}
