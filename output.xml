@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on darwin)" generated="20210308 11:05:32.712" rpa="false">
+<suite id="s1" name="Sample Test" source="/Users/solomentchu/auto-test/testcases/API_testcases/sample_test.robot">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>typicode</arg>
+<arg>https://jsonplaceholder.typicode.com</arg>
+</arguments>
+<msg timestamp="20210308 11:05:32.961" level="INFO">Creating Session using : alias=typicode, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:05:32.961" endtime="20210308 11:05:32.961"></status>
+</kw>
+<test id="s1-t1" name="requests: Should have a name and belong to a company with a slogan">
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>typicode</arg>
+<arg>/users/1</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20210308 11:05:33.485" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/1 
+ path_url=/users/1 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210308 11:05:33.486" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/1 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 08 Mar 2021 03:05:33 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=dd177530869a2872ef29a5ed41377c60b1615172733; expires=Wed, 07-Apr-21 03:05:33 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1611749520', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '6456', 'cf-request-id': '08b165220a0000e4ee3705a000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"max_age":604800,"group":"cf-nel","endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=oIilNJFQ2Slf0VOsbwL6myXnuGu80VWl%2BmwJeLqykjSALiy0jUV%2BG%2BqqkB6aF9sgNPgNz73g%2FIxRtblVg2zHVZc%2BUgb5dQiNMCXE1THJfw1uQ8RrLNt6TAtduiwl"}]}', 'NEL': '{"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '62c8d7afff21e4ee-LAX', 'Content-Encoding': 'gzip'} 
+ body={
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+} 
+ </msg>
+<msg timestamp="20210308 11:05:33.486" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210308 11:05:33.486" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210308 11:05:32.962" endtime="20210308 11:05:33.486"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210308 11:05:33.488" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210308 11:05:33.487" endtime="20210308 11:05:33.488"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>name</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20210308 11:05:33.489" level="INFO">${name} = Leanne Graham</msg>
+<status status="PASS" starttime="20210308 11:05:33.488" endtime="20210308 11:05:33.489"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>Leanne Graham</arg>
+</arguments>
+<status status="PASS" starttime="20210308 11:05:33.489" endtime="20210308 11:05:33.489"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>companygetMenu</arg>
+</arguments>
+<assign>
+<var>${co}</var>
+</assign>
+<msg timestamp="20210308 11:05:33.490" level="FAIL">Dictionary does not contain key 'companygetMenu'.</msg>
+<status status="FAIL" starttime="20210308 11:05:33.490" endtime="20210308 11:05:33.490"></status>
+</kw>
+<status status="FAIL" starttime="20210308 11:05:32.962" endtime="20210308 11:05:33.491" critical="yes">Dictionary does not contain key 'companygetMenu'.</status>
+</test>
+<kw name="Delete All Sessions" library="RequestsLibrary" type="teardown">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20210308 11:05:33.492" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20210308 11:05:33.491" endtime="20210308 11:05:33.492"></status>
+</kw>
+<status status="FAIL" starttime="20210308 11:05:32.713" endtime="20210308 11:05:33.492"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Sample Test">Sample Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210308 11:05:32.708" level="ERROR">Error in file '/Users/solomentchu/auto-test/testcases/API_testcases/sample_test.robot' on line 9: Setting 'Suite Setup' is allowed only once. Only the first value is used.</msg>
+</errors>
+</robot>

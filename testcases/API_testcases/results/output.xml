@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on darwin)" generated="20210308 11:26:16.880" rpa="false">
+<suite id="s1" name="Sample Test" source="/Users/solomentchu/auto-test/testcases/API_testcases/sample_test.robot">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>typicode</arg>
+<arg>https://jsonplaceholder.typicode.com</arg>
+</arguments>
+<msg timestamp="20210308 11:26:17.006" level="INFO">Creating Session using : alias=typicode, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:26:17.005" endtime="20210308 11:26:17.006"></status>
+</kw>
+<test id="s1-t1" name="requests: Should have a name and belong to a company with a slogan">
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>typicode</arg>
+<arg>/users/1</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20210308 11:26:17.480" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/1 
+ path_url=/users/1 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210308 11:26:17.480" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/1 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 08 Mar 2021 03:26:17 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=d6387d03b01f192e7f6187609b6a6f7aa1615173977; expires=Wed, 07-Apr-21 03:26:17 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1611749520', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '7700', 'cf-request-id': '08b1781d500000e4b856b23000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"max_age":604800,"group":"cf-nel","endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=gS4In%2FP7UbN3HuN2aevvHNRclWVdAh2YBb4lu3vyKcYHVMbWkgwK%2B6I5C7zgt8EFionzccP7AOvu0hwZNY37tBrdGgU0hLACiNca3d1LQccic89KnGyfpDT%2BeZrf"}]}', 'NEL': '{"max_age":604800,"report_to":"cf-nel"}', 'Server': 'cloudflare', 'CF-RAY': '62c8f60ee8dae4b8-LAX', 'Content-Encoding': 'gzip'} 
+ body={
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+} 
+ </msg>
+<msg timestamp="20210308 11:26:17.481" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210308 11:26:17.481" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210308 11:26:17.006" endtime="20210308 11:26:17.481"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210308 11:26:17.482" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210308 11:26:17.481" endtime="20210308 11:26:17.482"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>name</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20210308 11:26:17.483" level="INFO">${name} = Leanne Graham</msg>
+<status status="PASS" starttime="20210308 11:26:17.482" endtime="20210308 11:26:17.483"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>Leanne Graham</arg>
+</arguments>
+<status status="PASS" starttime="20210308 11:26:17.483" endtime="20210308 11:26:17.483"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>company</arg>
+</arguments>
+<assign>
+<var>${co}</var>
+</assign>
+<msg timestamp="20210308 11:26:17.484" level="INFO">${co} = {'name': 'Romaguera-Crona', 'catchPhrase': 'Multi-layered client-server neural-net', 'bs': 'harness real-time e-markets'}</msg>
+<status status="PASS" starttime="20210308 11:26:17.484" endtime="20210308 11:26:17.484"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${co}</arg>
+<arg>catchPhrase</arg>
+</arguments>
+<assign>
+<var>${co_slogan}</var>
+</assign>
+<msg timestamp="20210308 11:26:17.484" level="INFO">${co_slogan} = Multi-layered client-server neural-net</msg>
+<status status="PASS" starttime="20210308 11:26:17.484" endtime="20210308 11:26:17.485"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${co_slogan}</arg>
+<arg>Multi-layered client-server neural-net</arg>
+</arguments>
+<status status="PASS" starttime="20210308 11:26:17.485" endtime="20210308 11:26:17.485"></status>
+</kw>
+<kw name="Dumps" library="json">
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>indent=${4}</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20210308 11:26:17.486" level="INFO">${json} = {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gw...</msg>
+<status status="PASS" starttime="20210308 11:26:17.485" endtime="20210308 11:26:17.486"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${json}</arg>
+</arguments>
+<status status="PASS" starttime="20210308 11:26:17.486" endtime="20210308 11:26:17.486"></status>
+</kw>
+<status status="PASS" starttime="20210308 11:26:17.006" endtime="20210308 11:26:17.486" critical="yes"></status>
+</test>
+<test id="s1-t2" name="API test: get Menu">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>tdc</arg>
+<arg>https://beta.techdesignlink.com</arg>
+</arguments>
+<msg timestamp="20210308 11:26:17.487" level="INFO">Creating Session using : alias=tdc, url=https://beta.techdesignlink.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:26:17.487" endtime="20210308 11:26:17.488"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>tdc</arg>
+<arg>/config/getMenu</arg>
+<arg>expected_status=200</arg>
+</arguments>
+<assign>
+<var>${Menu}</var>
+</assign>
+<msg timestamp="20210308 11:26:19.692" level="INFO">GET Request : url=https://beta.techdesignlink.com/config/getMenu 
+ path_url=/config/getMenu 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210308 11:26:19.693" level="INFO">GET Response : url=https://beta.techdesignlink.com/config/getMenu 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 08 Mar 2021 03:26:19 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'Apache/2.4.43 () OpenSSL/1.0.2k-fips', 'X-Powered-By': 'PHP/7.4.7', 'Cache-Control': 'no-cache, private', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImcyUDFKbnVXbldwaXF2SVhldklHOVE9PSIsInZhbHVlIjoib2htbVFKTVh0TDhaRmRPZHdrTVJIVDBkalZNOXdOeEttSnd4OUtJVnoreFpHRmswWllRTnVHS1ZMMDNzVkhGdnNxQ2FiU3ZGTFBKNDFZRmxzMFNWaDJHQmt3VDNxZkVwQkZTZzF3YVJ4bkdUaW1BdnRDdmo3dTVlakZaelhqbHgiLCJtYWMiOiJlZThkMzQ0M2JiMmM4OGE0MTU1NDc4ZGM4ZTAyY2FjZTI1Y2NjNTU2ZTAzMjY4ZTA0ZjNkYzgxM2RiYzQwYWNjIn0%3D; expires=Mon, 08-Mar-2021 05:26:19 GMT; Max-Age=7200; path=/, laravel_session=eyJpdiI6Ikt2SGk2ZnprSm9pNE9hMDlESVNNWkE9PSIsInZhbHVlIjoidE9ZSEZ3cjduM1JmeWxKZzhqb2kvaE9uK1ZNaGhLRk9Rdkt1TUdvOGl2aHZEcjFNVWI4Y1dQbmNhNDRIRkY1a1hwZXI4czlvZEZLb2xxQ3YzaXpPdHNlMTRPUjIrazNkOEtwcTZYTDNMbFF0SnZPNWZPQjdldnJacFFUdEZoWUEiLCJtYWMiOiIxOGI1Yzg3ZDVmZWM3NWFlYTZkMGQ0NGJjYzkwODhkOTQxZjg3NzBiNGRmMjJmODRmNmJjNGU4MDA5ODY1YjhkIn0%3D; expires=Mon, 08-Mar-2021 05:26:19 GMT; Max-Age=7200; path=/; httponly, _tdc_id=eyJpdiI6ImZKdDZveldJU0RZenY3bzlJWHRZdlE9PSIsInZhbHVlIjoickdOOWhVbGVHYWE3blFURS9tSnVNY1BvUExlY0ZzMGp3bHVybmVsVUt3K1lhL0FIOEppQ0RxNEQ5WGtDOTdwWDhhaFlSbnhJclZaWXFCU25qYk5wdnNWWXFZT2dCWS85bmpIcGZRM2pTYlE9IiwibWFjIjoiNzUxYWVjYTRjY2I3Njg1YzQ5YmFhN2IxZGIwNWQ5Y2U5MGRmY2JhY2FmZjFmZThhNmIxMTE1NzM3ZGYzNzEwZSJ9; expires=Sat, 07-Mar-2026 03:26:19 GMT; Max-Age=157680000; path=/; httponly, _tdc_pri=eyJpdiI6ImJpL0VlRCtoT1RaWWoyUXJDV3lHdWc9PSIsInZhbHVlIjoiZXBLTkdZSkZ2REVLZWhVYnZiZnlBdFNMMDJMalEzNGttTG00OEk0Q2drTGhNS0xDN01nR3UwTTdtZ2NWUkJ0MSIsIm1hYyI6ImMwMDczNDlmODE2YzU2YTM2ODUwODhhOGFkYzM1YWY1ZmRiNDFlNDNjZDM0OGE5ZGU1NjYyNzdhZTk5NWE1YzEifQ%3D%3D; expires=Sat, 07-Mar-2026 03:26:19 GMT; Max-Age=157680000; path=/; httponly, _tdc_locale=en; expires=Sat, 07-Mar-2026 03:26:19 GMT; Max-Age=157680000; path=/; secure', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000'} 
+ body={"ReturnCode":0,"status":"OK","data":{"manufacturers":[{"id":null,"title":"AMAZING","title_en":"AMAZING","href":"https:\/\/beta.techdesignlink.com\/market\/amazingIC","children":[]},{"id":null,"title":"gplus-iot","title_en":"gplus-iot","href":"https:\/\/beta.techdesignlink.com\/market\/gplus-iot","children":[]},{"id":null,"title":"nuvoton","title_en":"nuvoton","href":"https:\/\/beta.techdesignlink.com\/market\/nuvoton","children":[]},{"id":null,"title":"Opulinks Technology","title_en":"Opulinks Technology","href":"https:\/\/beta.techdesignlink.com\/market\/netlink","children":[]},{"id":null,"title":"PANJIT","title_en":"PANJIT","href":"https:\/\/beta.techdesignlink.com\/market\/panjit","children":[]},{"id":null,"title":"pdc","title_en":"pdc","href":"https:\/\/beta.techdesignlink.com\/market\/pdc","children":[]},{"id":null,"title":"REYAX","title_en":"REYAX","href":"https:\/\/beta.techdesignlink.com\/market\/reyax","children":[]},{"id":null,"title":"Sinopower","title_en":"Sinopower","href":"https:\/\/beta.techdesignlink.com\/market\/sinopowersemi","children":[]},{"id":null,"title":"Walsin Technology Corporation","title_en":"Walsin Technology Corporation","href":"https:\/\/beta.techdesignlink.com\/market\/walsin","children":[]},{"id":null,"title":"WINBOND","title_en":"WINBOND","href":"https:\/\/beta.techdesignlink.com\/market\/winbond","children":[]}],"components":[{"id":null,"title":"Integrated Circuits (ICs)","title_en":"Integrated Circuits (ICs)","href":null,"children":[{"id":null,"title":"Memory","title_en":"Memory","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/All","children":[{"id":null,"title":"Pseudo SRAM","title_en":"Pseudo SRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Pseudo-SRAM","children":[]},{"id":null,"title":"Low Power SDR SDRAM","title_en":"Low Power SDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-SDR-SDRAM","children":[]},{"id":null,"title":"Low Power DDR SDRAM","title_en":"Low Power DDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR-SDRAM","children":[]},{"id":null,"title":"Low Power DDR2 SDRAM","title_en":"Low Power DDR2 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR2-SDRAM","children":[]},{"id":null,"title":"DDR SDRAM","title_en":"DDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR-SDRAM","children":[]},{"id":null,"title":"DDR2 SDRAM","title_en":"DDR2 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR2-SDRAM","children":[]},{"id":null,"title":"DDR3 SDRAM","title_en":"DDR3 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR3-SDRAM","children":[]},{"id":null,"title":"SDR SDRAM","title_en":"SDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SDR-SDRAM","children":[]},{"id":null,"title":"Serial NAND Flash","title_en":"Serial NAND Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Serial-NAND-Flash","children":[]},{"id":null,"title":"SLC NAND Flash","title_en":"SLC NAND Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SLC-NAND-Flash","children":[]},{"id":null,"title":"Serial NOR Flash","title_en":"Serial NOR Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Serial-NOR-Flash","children":[]},{"id":null,"title":"Authentication Flash","title_en":"Authentication Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Authentication-Flash","children":[]},{"id":null,"title":"SpiStack Flash","title_en":"SpiStack Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SpiStack-Flash","children":[]},{"id":null,"title":"Low Power DDR3 SDRAM","title_en":"Low Power DDR3 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR3-SDRAM","children":[]},{"id":null,"title":"HyperRAM\u2122","title_en":"HyperRAM\u2122","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/HyperRAM\u2122","children":[]}]},{"id":null,"title":"Embedded Controllers","title_en":"Embedded Controllers","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Controllers\/All","children":[{"id":null,"title":"Microcontrollers MCU","title_en":"Microcontrollers MCU","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Controllers\/Microcontrollers-MCU","children":[]}]},{"id":null,"title":"Embedded Processors","title_en":"Embedded Processors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Processors\/All","children":[{"id":null,"title":"Microprocessors MPU","title_en":"Microprocessors MPU","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Processors\/Microprocessors-MPU","children":[]}]},{"id":null,"title":"System on a Chip","title_en":"System on a Chip","href":"https:\/\/beta.techdesignlink.com\/market\/product\/System-on-a-Chip\/All","children":[{"id":null,"title":"SoC","title_en":"SoC","href":"https:\/\/beta.techdesignlink.com\/market\/product\/System-on-a-Chip\/SoC","children":[]}]},{"id":null,"title":"Power MOSFET","title_en":"Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/All","children":[{"id":null,"title":"Low Voltage (\u2266 40V) Power MOSFET","title_en":"Low Voltage (\u2266 40V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/Low-Voltage-(\u2266-40V)-Power-MOSFET","children":[]},{"id":null,"title":"Mid Voltage (60V~250V) Power MOSFET","title_en":"Mid Voltage (60V~250V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/Mid-Voltage-(60V~250V)-Power-MOSFET","children":[]},{"id":null,"title":"High Voltage (&gt; 250V) Power MOSFET","title_en":"High Voltage (&gt; 250V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/High-Voltage-(&gt;-250V)-Power-MOSFET","children":[]}]},{"id":null,"title":"Microcontrollers Debugger and Programmer","title_en":"Microcontrollers Debugger and Programmer","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Microcontrollers-Debugger-and-Programmer\/All","children":[{"id":null,"title":"Microcontrollers Debugger and Programmer","title_en":"Microcontrollers Debugger and Programmer","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Microcontrollers-Debugger-and-Programmer\/Microcontrollers-Debugger-and-Programmer","children":[]}]}]},{"id":null,"title":"Passive Components","title_en":"Passive Components","href":null,"children":[{"id":null,"title":"Capacitors","title_en":"Capacitors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Capacitors\/All","children":[{"id":null,"title":"MLCCs","title_en":"MLCCs","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Capacitors\/MLCCs","children":[]}]},{"id":null,"title":"Resistors","title_en":"Resistors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Resistors\/All","children":[{"id":null,"title":"Chip Resistors","title_en":"Chip Resistors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Resistors\/Chip-Resistors","children":[]}]},{"id":null,"title":"Inductor, Coils and Chokes","title_en":"Inductor, Coils and Chokes","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Inductor,-Coils-and-Chokes\/All","children":[{"id":null,"title":"Wire Wound Chip Inductor","title_en":"Wire Wound Chip Inductor","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Inductor,-Coils-and-Chokes\/Wire-Wound-Chip-Inductor","children":[]}]}]},{"id":null,"title":"Development Tools","title_en":"Development Tools","href":null,"children":[{"id":null,"title":"Development Boards and Kits","title_en":"Development Boards and Kits","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/All","children":[{"id":null,"title":"Development Kit","title_en":"Development Kit","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/Development-Kit","children":[]},{"id":null,"title":"Development Board","title_en":"Development Board","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/Development-Board","children":[]}]}]},{"id":null,"title":"RF and Wireless Modules","title_en":"RF and Wireless Modules","href":null,"children":[{"id":null,"title":"Wifi Modules","title_en":"Wifi Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Wifi-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Wifi-Modules\/Modules","children":[]}]},{"id":null,"title":"Bluetooth Modules","title_en":"Bluetooth Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Bluetooth-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Bluetooth-Modules\/Modules","children":[]}]},{"id":null,"title":"LoRa Modules","title_en":"LoRa Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/LoRa-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/LoRa-Modules\/Modules","children":[]}]},{"id":null,"title":"ZigBee Modules","title_en":"ZigBee Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/ZigBee-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/ZigBee-Modules\/Modules","children":[]}]},{"id":null,"title":"Sub G Modules","title_en":"Sub G Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Sub-G-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Sub-G-Modules\/Modules","children":[]}]},{"id":null,"title":"GPS and GNSS Receiver Modules","title_en":... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20210308 11:26:19.693" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'beta.techdesignlink.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210308 11:26:19.693" level="INFO">${Menu} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210308 11:26:17.488" endtime="20210308 11:26:19.693"></status>
+</kw>
+<status status="PASS" starttime="20210308 11:26:17.487" endtime="20210308 11:26:19.694" critical="yes"></status>
+</test>
+<kw name="Delete All Sessions" library="RequestsLibrary" type="teardown">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20210308 11:26:19.695" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20210308 11:26:19.695" endtime="20210308 11:26:19.695"></status>
+</kw>
+<status status="PASS" starttime="20210308 11:26:16.881" endtime="20210308 11:26:19.695"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Sample Test">Sample Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
