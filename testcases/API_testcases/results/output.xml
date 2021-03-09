@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.2 on darwin)" generated="20210308 11:29:33.520" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.9.2 on darwin)" generated="20210308 11:37:28.615" rpa="false">
 <suite id="s1" name="Sample Test" source="/Users/solomentchu/auto-test/testcases/API_testcases/sample_test.robot">
 <kw name="Create Session" library="RequestsLibrary" type="setup">
 <doc>Create Session: create a HTTP session to a server</doc>
@@ -7,8 +7,8 @@
 <arg>typicode</arg>
 <arg>https://jsonplaceholder.typicode.com</arg>
 </arguments>
-<msg timestamp="20210308 11:29:33.656" level="INFO">Creating Session using : alias=typicode, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210308 11:29:33.656" endtime="20210308 11:29:33.657"></status>
+<msg timestamp="20210308 11:37:28.697" level="INFO">Creating Session using : alias=typicode, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:37:28.697" endtime="20210308 11:37:28.697"></status>
 </kw>
 <test id="s1-t1" name="requests: Should have a name and belong to a company with a slogan">
 <kw name="Get On Session" library="RequestsLibrary">
@@ -20,14 +20,14 @@
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20210308 11:29:34.178" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/1 
+<msg timestamp="20210308 11:37:29.211" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/1 
  path_url=/users/1 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210308 11:29:34.178" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/1 
+<msg timestamp="20210308 11:37:29.211" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/1 
  status=200, reason=OK 
- headers={'Date': 'Mon, 08 Mar 2021 03:29:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=d291522f4d03253d25954eb70b637e9d41615174174; expires=Wed, 07-Apr-21 03:29:34 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1611749520', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '7897', 'cf-request-id': '08b17b1db60000e506712a9000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=I4Slp1QXtdMhJ4atWbUodtC%2FWuhV%2Fr6x%2BPfHqgkGQYHSZ0C5reoj4AKKfuJEUPpM0yJrIEjIzNtIPY08Ma%2FsDqc7glGakMFwEO%2F%2FSrNqKm53T8qbwVfXfKWxHVOb"}],"max_age":604800,"group":"cf-nel"}', 'NEL': '{"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '62c8fadc5aa4e506-LAX', 'Content-Encoding': 'gzip'} 
+ headers={'Date': 'Mon, 08 Mar 2021 03:37:29 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=d986e11153471e9363efe54a4a272dc721615174649; expires=Wed, 07-Apr-21 03:37:29 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1611749520', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '8372', 'cf-request-id': '08b1825d69000042bda38f7000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=zNy0CIbNuOYMLLUR%2BTTIqhDdu%2Bq%2B1aE1Gc4dmOWLHs5lnAOUw8HKiFvFpYATnGsXEFZWhJFz2bPW5BJZGVT7ulSMLTx%2B2F9oGxxG73CvGt1%2BEJR%2Bc1wWhhoQgtHg"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '62c90675792942bd-LAX', 'Content-Encoding': 'gzip'} 
  body={
   "id": 1,
   "name": "Leanne Graham",
@@ -52,10 +52,10 @@
   }
 } 
  </msg>
-<msg timestamp="20210308 11:29:34.179" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20210308 11:37:29.211" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20210308 11:29:34.179" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210308 11:29:33.657" endtime="20210308 11:29:34.179"></status>
+<msg timestamp="20210308 11:37:29.212" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210308 11:37:28.698" endtime="20210308 11:37:29.212"></status>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to integers.</doc>
@@ -63,10 +63,10 @@
 <arg>${resp.status_code}</arg>
 <arg>200</arg>
 </arguments>
-<msg timestamp="20210308 11:29:34.180" level="INFO">Argument types are:
+<msg timestamp="20210308 11:37:29.213" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20210308 11:29:34.179" endtime="20210308 11:29:34.180"></status>
+<status status="PASS" starttime="20210308 11:37:29.212" endtime="20210308 11:37:29.213"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -77,8 +77,8 @@
 <assign>
 <var>${name}</var>
 </assign>
-<msg timestamp="20210308 11:29:34.181" level="INFO">${name} = Leanne Graham</msg>
-<status status="PASS" starttime="20210308 11:29:34.180" endtime="20210308 11:29:34.181"></status>
+<msg timestamp="20210308 11:37:29.214" level="INFO">${name} = Leanne Graham</msg>
+<status status="PASS" starttime="20210308 11:37:29.213" endtime="20210308 11:37:29.214"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -86,7 +86,7 @@
 <arg>${name}</arg>
 <arg>Leanne Graham</arg>
 </arguments>
-<status status="PASS" starttime="20210308 11:29:34.181" endtime="20210308 11:29:34.181"></status>
+<status status="PASS" starttime="20210308 11:37:29.214" endtime="20210308 11:37:29.214"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -97,8 +97,8 @@
 <assign>
 <var>${co}</var>
 </assign>
-<msg timestamp="20210308 11:29:34.182" level="INFO">${co} = {'name': 'Romaguera-Crona', 'catchPhrase': 'Multi-layered client-server neural-net', 'bs': 'harness real-time e-markets'}</msg>
-<status status="PASS" starttime="20210308 11:29:34.182" endtime="20210308 11:29:34.182"></status>
+<msg timestamp="20210308 11:37:29.215" level="INFO">${co} = {'name': 'Romaguera-Crona', 'catchPhrase': 'Multi-layered client-server neural-net', 'bs': 'harness real-time e-markets'}</msg>
+<status status="PASS" starttime="20210308 11:37:29.214" endtime="20210308 11:37:29.215"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -109,8 +109,8 @@
 <assign>
 <var>${co_slogan}</var>
 </assign>
-<msg timestamp="20210308 11:29:34.183" level="INFO">${co_slogan} = Multi-layered client-server neural-net</msg>
-<status status="PASS" starttime="20210308 11:29:34.182" endtime="20210308 11:29:34.183"></status>
+<msg timestamp="20210308 11:37:29.215" level="INFO">${co_slogan} = Multi-layered client-server neural-net</msg>
+<status status="PASS" starttime="20210308 11:37:29.215" endtime="20210308 11:37:29.215"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -118,7 +118,7 @@
 <arg>${co_slogan}</arg>
 <arg>Multi-layered client-server neural-net</arg>
 </arguments>
-<status status="PASS" starttime="20210308 11:29:34.183" endtime="20210308 11:29:34.183"></status>
+<status status="PASS" starttime="20210308 11:37:29.216" endtime="20210308 11:37:29.216"></status>
 </kw>
 <kw name="Dumps" library="json">
 <doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
@@ -129,7 +129,7 @@
 <assign>
 <var>${json}</var>
 </assign>
-<msg timestamp="20210308 11:29:34.184" level="INFO">${json} = {
+<msg timestamp="20210308 11:37:29.217" level="INFO">${json} = {
     "id": 1,
     "name": "Leanne Graham",
     "username": "Bret",
@@ -138,16 +138,16 @@
         "street": "Kulas Light",
         "suite": "Apt. 556",
         "city": "Gw...</msg>
-<status status="PASS" starttime="20210308 11:29:34.183" endtime="20210308 11:29:34.184"></status>
+<status status="PASS" starttime="20210308 11:37:29.216" endtime="20210308 11:37:29.217"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${json}</arg>
 </arguments>
-<status status="PASS" starttime="20210308 11:29:34.184" endtime="20210308 11:29:34.184"></status>
+<status status="PASS" starttime="20210308 11:37:29.217" endtime="20210308 11:37:29.217"></status>
 </kw>
-<status status="PASS" starttime="20210308 11:29:33.657" endtime="20210308 11:29:34.184" critical="yes"></status>
+<status status="PASS" starttime="20210308 11:37:28.697" endtime="20210308 11:37:29.217" critical="yes"></status>
 </test>
 <test id="s1-t2" name="API test: get Menu">
 <kw name="Create Session" library="RequestsLibrary">
@@ -156,8 +156,8 @@
 <arg>tdc</arg>
 <arg>https://beta.techdesignlink.com</arg>
 </arguments>
-<msg timestamp="20210308 11:29:34.185" level="INFO">Creating Session using : alias=tdc, url=https://beta.techdesignlink.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210308 11:29:34.185" endtime="20210308 11:29:34.186"></status>
+<msg timestamp="20210308 11:37:29.218" level="INFO">Creating Session using : alias=tdc, url=https://beta.techdesignlink.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:37:29.218" endtime="20210308 11:37:29.218"></status>
 </kw>
 <kw name="Get On Session" library="RequestsLibrary">
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
@@ -169,20 +169,20 @@
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20210308 11:29:35.345" level="INFO">GET Request : url=https://beta.techdesignlink.com/config/getMenu 
+<msg timestamp="20210308 11:37:30.540" level="INFO">GET Request : url=https://beta.techdesignlink.com/config/getMenu 
  path_url=/config/getMenu 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20210308 11:29:35.345" level="INFO">GET Response : url=https://beta.techdesignlink.com/config/getMenu 
+<msg timestamp="20210308 11:37:30.540" level="INFO">GET Response : url=https://beta.techdesignlink.com/config/getMenu 
  status=200, reason=OK 
- headers={'Date': 'Mon, 08 Mar 2021 03:29:35 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'Apache/2.4.43 () OpenSSL/1.0.2k-fips', 'X-Powered-By': 'PHP/7.4.7', 'Cache-Control': 'no-cache, private', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IkxDL3J6Z1pNRDdzNEk2a0loU1VJQ2c9PSIsInZhbHVlIjoicjBsdGpnckNZK3VxYVFEeGRiREEwdXBXT2p0NDNXdjZ1SWtpczJKY3NXT0pObk4yZklydjRpV2ExbE1SZjRzUjcxYjFXNmw1S0JtV3cxY2ZCajl2UXdkZWw2WnVwVzAyR0QwN0FjQ1RLM3M0NHQ3eXlEZnAxcndIUzBiNzZlRXUiLCJtYWMiOiI2ZDk5YzBiZDVkMTQ3ZWNkYjUyODc5YjI1MDA5NjIxNWVkNDFjNmYzNGE3MWVmOGEwYzU4OWY3YzA4NDdiOTllIn0%3D; expires=Mon, 08-Mar-2021 05:29:35 GMT; Max-Age=7200; path=/, laravel_session=eyJpdiI6ImovWVVIWlFuaWE2TzlFSFB5UTBQN0E9PSIsInZhbHVlIjoiems1TUtBcXdVQVlVQ2RxcnlpV1lvbHJnTStpdTZVTmFKRFUwbGFUbWlnWGp0QTdDRG0rTlRweERIRFFxMjd3bzRoemkwSzZFR1A0cHVteFZjZDdWNVF3aXFOVTBoSWJYYk5wVnd6RXl6a3Q1Q2txOTdGUnJsSVVMN3l0RFRWSGQiLCJtYWMiOiJmZmM2ZjRmMDQzZDVkOWE5OTkzODkwZmUwNTUzYjFjYzBhZGU1MTRlMGY3MDM4ZjAzOTAzMTc3MDRhY2U2YmEzIn0%3D; expires=Mon, 08-Mar-2021 05:29:35 GMT; Max-Age=7200; path=/; httponly, _tdc_id=eyJpdiI6Ik1jSnZVc084UXFwRjhLNHg5TEQ3NlE9PSIsInZhbHVlIjoiVUluRUlwdHFqcUQ1aGZScU1DZXBxSWR5djNzdGNVUWtMUTFXZmR4dDZ2Y2ZpMGdteDRwQnVFbHNUaExMWEswQnFGVWdnOUlIVFRSMEZ6dWgyZHRwU0tzdU1WS2xzRWhGU2kwbmdzSmRDcG89IiwibWFjIjoiMjQ3MTFiZTIzNmM5ZDQ0ZDM5ZDI5YzE1NGViZjFmZTQ1Nzk3NDg2MGU1ZTVhMWEwOGRlNTY3NGEyMDU1MzkzMSJ9; expires=Sat, 07-Mar-2026 03:29:34 GMT; Max-Age=157679999; path=/; httponly, _tdc_pri=eyJpdiI6ImwxazJnUDdkN2RCZHJGZHVpYXRSSWc9PSIsInZhbHVlIjoiTW1zSHIrR1hsKzJSUXBQRTNSck5TVEZpSTlnVERZQ0labXpWc2V2Z1JSTkltRU81a3lJY2RjeGNGS1F2dVJtbSIsIm1hYyI6ImZlODM1YzUwYzhhYzZlMGUyZjYyMzNjMzJmZTRiNWI1MWE3YjI0YmRlNjdmNzU1ZmFlNDQzOTMyMmFlOThjNTQifQ%3D%3D; expires=Sat, 07-Mar-2026 03:29:34 GMT; Max-Age=157679999; path=/; httponly, _tdc_locale=en; expires=Sat, 07-Mar-2026 03:29:34 GMT; Max-Age=157679999; path=/; secure', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000'} 
+ headers={'Date': 'Mon, 08 Mar 2021 03:37:30 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'Apache/2.4.43 () OpenSSL/1.0.2k-fips', 'X-Powered-By': 'PHP/7.4.7', 'Cache-Control': 'no-cache, private', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IkQ0dVdDOWkxeWJyeGRmWHNmY0tVM1E9PSIsInZhbHVlIjoiQVJTZFpHUWFnR0EvQ1NKSXoxc1RBakhJcXdOL0RpdFZxZEVIN2RWNjlIQVV3akhzTUFFZzdtVzg0ZkwwQVBaRXRyZG1CRVhObFBEcklGRXI4TEpIZnZIdUN1ZEU5LzYrcUt2aGV2R04wMC9LWXBuTXJib1ZxT1JLNWtwa1hZU0UiLCJtYWMiOiJiMmVkMDM4OWE3NjYyZWU3MTBjMzdhMDA5YzU2M2M0OTk0Mjg5MGFkMjQwNmI3ODFhMTZkNjc4M2RiN2ViYmIwIn0%3D; expires=Mon, 08-Mar-2021 05:37:30 GMT; Max-Age=7200; path=/, laravel_session=eyJpdiI6IkxUYkg5eEhCcUZPTUYwaitlajhQOEE9PSIsInZhbHVlIjoibk45NFp6NmpSRGNCZHkzS1ZjU2MvblBqTG5Gb1V0WEU2TU8renlMWEZnMmsrUDBTVVBhMyt0ckhRbDAzMnNTTTFNZ0JmRFdXS3FEaFhUOU1LRDZLcXNlWmhYZVN3ZmVreWdZb3A3N0V0MnFjRS9ZM0lKVVpSK2Vkc2FQYjUwQlkiLCJtYWMiOiIzNGE5Y2M3NDNiODQzZDg2MjllOGUzZWFjZmQ5MWM4N2YwYmU4ZTdjYzQ3ZDhmN2I5Y2QwZDM3OTFiOTVmYzM5In0%3D; expires=Mon, 08-Mar-2021 05:37:30 GMT; Max-Age=7200; path=/; httponly, _tdc_id=eyJpdiI6Ik5JalZ3dGRrODZ4cml2eXBLbll1K2c9PSIsInZhbHVlIjoidnFQS1Y0V0F3Vk40WUN5NS9nVUp3VnJYS2lSdHlkQ1R5ZnZuaWY2Z0lZbjhTVEVUbDF1TWVUanR6bWV3a3k0UmxORmpZMXJWZythSi9VOTRYQzJzNS8xV2VXUkE5N1ZzNXlxTTdJMmRvV3c9IiwibWFjIjoiZDhlNzEyYTlmZjE5YzcxMDEwNDQ5MTFiNDBmY2NmMmU1NDVlZjllOGUzNDA5NWUwOTljNzhiYjQ0ZTEzNDdhMCJ9; expires=Sat, 07-Mar-2026 03:37:30 GMT; Max-Age=157680000; path=/; httponly, _tdc_pri=eyJpdiI6IjF0aW1iWnN4REw3cFEvSzB6VVdnckE9PSIsInZhbHVlIjoiM0ZjR3IxNlBOOTB4OTRuU2oydG9QQzIvSC91SnpVeDZrRG1sd2ExQThiS3dQRGJQMjYwZTlJMy9NcGRlbmJ1SyIsIm1hYyI6ImQ0MGEyYmYzNmNkOTUyZjMzODhkYTc5ZTEyZTEzNTRkMmYzZDgwMmZmZWI1OTYyMmI3MGNmMjQyY2I2ZWYxZGQifQ%3D%3D; expires=Sat, 07-Mar-2026 03:37:30 GMT; Max-Age=157680000; path=/; httponly, _tdc_locale=en; expires=Sat, 07-Mar-2026 03:37:30 GMT; Max-Age=157680000; path=/; secure', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000'} 
  body={"ReturnCode":0,"status":"OK","data":{"manufacturers":[{"id":null,"title":"AMAZING","title_en":"AMAZING","href":"https:\/\/beta.techdesignlink.com\/market\/amazingIC","children":[]},{"id":null,"title":"gplus-iot","title_en":"gplus-iot","href":"https:\/\/beta.techdesignlink.com\/market\/gplus-iot","children":[]},{"id":null,"title":"nuvoton","title_en":"nuvoton","href":"https:\/\/beta.techdesignlink.com\/market\/nuvoton","children":[]},{"id":null,"title":"Opulinks Technology","title_en":"Opulinks Technology","href":"https:\/\/beta.techdesignlink.com\/market\/netlink","children":[]},{"id":null,"title":"PANJIT","title_en":"PANJIT","href":"https:\/\/beta.techdesignlink.com\/market\/panjit","children":[]},{"id":null,"title":"pdc","title_en":"pdc","href":"https:\/\/beta.techdesignlink.com\/market\/pdc","children":[]},{"id":null,"title":"REYAX","title_en":"REYAX","href":"https:\/\/beta.techdesignlink.com\/market\/reyax","children":[]},{"id":null,"title":"Sinopower","title_en":"Sinopower","href":"https:\/\/beta.techdesignlink.com\/market\/sinopowersemi","children":[]},{"id":null,"title":"Walsin Technology Corporation","title_en":"Walsin Technology Corporation","href":"https:\/\/beta.techdesignlink.com\/market\/walsin","children":[]},{"id":null,"title":"WINBOND","title_en":"WINBOND","href":"https:\/\/beta.techdesignlink.com\/market\/winbond","children":[]}],"components":[{"id":null,"title":"Integrated Circuits (ICs)","title_en":"Integrated Circuits (ICs)","href":null,"children":[{"id":null,"title":"Memory","title_en":"Memory","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/All","children":[{"id":null,"title":"Pseudo SRAM","title_en":"Pseudo SRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Pseudo-SRAM","children":[]},{"id":null,"title":"Low Power SDR SDRAM","title_en":"Low Power SDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-SDR-SDRAM","children":[]},{"id":null,"title":"Low Power DDR SDRAM","title_en":"Low Power DDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR-SDRAM","children":[]},{"id":null,"title":"Low Power DDR2 SDRAM","title_en":"Low Power DDR2 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR2-SDRAM","children":[]},{"id":null,"title":"DDR SDRAM","title_en":"DDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR-SDRAM","children":[]},{"id":null,"title":"DDR2 SDRAM","title_en":"DDR2 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR2-SDRAM","children":[]},{"id":null,"title":"DDR3 SDRAM","title_en":"DDR3 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/DDR3-SDRAM","children":[]},{"id":null,"title":"SDR SDRAM","title_en":"SDR SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SDR-SDRAM","children":[]},{"id":null,"title":"Serial NAND Flash","title_en":"Serial NAND Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Serial-NAND-Flash","children":[]},{"id":null,"title":"SLC NAND Flash","title_en":"SLC NAND Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SLC-NAND-Flash","children":[]},{"id":null,"title":"Serial NOR Flash","title_en":"Serial NOR Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Serial-NOR-Flash","children":[]},{"id":null,"title":"Authentication Flash","title_en":"Authentication Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Authentication-Flash","children":[]},{"id":null,"title":"SpiStack Flash","title_en":"SpiStack Flash","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/SpiStack-Flash","children":[]},{"id":null,"title":"Low Power DDR3 SDRAM","title_en":"Low Power DDR3 SDRAM","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/Low-Power-DDR3-SDRAM","children":[]},{"id":null,"title":"HyperRAM\u2122","title_en":"HyperRAM\u2122","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Memory\/HyperRAM\u2122","children":[]}]},{"id":null,"title":"Embedded Controllers","title_en":"Embedded Controllers","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Controllers\/All","children":[{"id":null,"title":"Microcontrollers MCU","title_en":"Microcontrollers MCU","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Controllers\/Microcontrollers-MCU","children":[]}]},{"id":null,"title":"Embedded Processors","title_en":"Embedded Processors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Processors\/All","children":[{"id":null,"title":"Microprocessors MPU","title_en":"Microprocessors MPU","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Embedded-Processors\/Microprocessors-MPU","children":[]}]},{"id":null,"title":"System on a Chip","title_en":"System on a Chip","href":"https:\/\/beta.techdesignlink.com\/market\/product\/System-on-a-Chip\/All","children":[{"id":null,"title":"SoC","title_en":"SoC","href":"https:\/\/beta.techdesignlink.com\/market\/product\/System-on-a-Chip\/SoC","children":[]}]},{"id":null,"title":"Power MOSFET","title_en":"Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/All","children":[{"id":null,"title":"Low Voltage (\u2266 40V) Power MOSFET","title_en":"Low Voltage (\u2266 40V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/Low-Voltage-(\u2266-40V)-Power-MOSFET","children":[]},{"id":null,"title":"Mid Voltage (60V~250V) Power MOSFET","title_en":"Mid Voltage (60V~250V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/Mid-Voltage-(60V~250V)-Power-MOSFET","children":[]},{"id":null,"title":"High Voltage (&gt; 250V) Power MOSFET","title_en":"High Voltage (&gt; 250V) Power MOSFET","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Power-MOSFET\/High-Voltage-(&gt;-250V)-Power-MOSFET","children":[]}]},{"id":null,"title":"Microcontrollers Debugger and Programmer","title_en":"Microcontrollers Debugger and Programmer","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Microcontrollers-Debugger-and-Programmer\/All","children":[{"id":null,"title":"Microcontrollers Debugger and Programmer","title_en":"Microcontrollers Debugger and Programmer","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Microcontrollers-Debugger-and-Programmer\/Microcontrollers-Debugger-and-Programmer","children":[]}]}]},{"id":null,"title":"Passive Components","title_en":"Passive Components","href":null,"children":[{"id":null,"title":"Capacitors","title_en":"Capacitors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Capacitors\/All","children":[{"id":null,"title":"MLCCs","title_en":"MLCCs","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Capacitors\/MLCCs","children":[]}]},{"id":null,"title":"Resistors","title_en":"Resistors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Resistors\/All","children":[{"id":null,"title":"Chip Resistors","title_en":"Chip Resistors","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Resistors\/Chip-Resistors","children":[]}]},{"id":null,"title":"Inductor, Coils and Chokes","title_en":"Inductor, Coils and Chokes","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Inductor,-Coils-and-Chokes\/All","children":[{"id":null,"title":"Wire Wound Chip Inductor","title_en":"Wire Wound Chip Inductor","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Inductor,-Coils-and-Chokes\/Wire-Wound-Chip-Inductor","children":[]}]}]},{"id":null,"title":"Development Tools","title_en":"Development Tools","href":null,"children":[{"id":null,"title":"Development Boards and Kits","title_en":"Development Boards and Kits","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/All","children":[{"id":null,"title":"Development Kit","title_en":"Development Kit","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/Development-Kit","children":[]},{"id":null,"title":"Development Board","title_en":"Development Board","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Development-Boards-and-Kits\/Development-Board","children":[]}]}]},{"id":null,"title":"RF and Wireless Modules","title_en":"RF and Wireless Modules","href":null,"children":[{"id":null,"title":"Wifi Modules","title_en":"Wifi Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Wifi-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Wifi-Modules\/Modules","children":[]}]},{"id":null,"title":"Bluetooth Modules","title_en":"Bluetooth Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Bluetooth-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Bluetooth-Modules\/Modules","children":[]}]},{"id":null,"title":"LoRa Modules","title_en":"LoRa Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/LoRa-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/LoRa-Modules\/Modules","children":[]}]},{"id":null,"title":"ZigBee Modules","title_en":"ZigBee Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/ZigBee-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/ZigBee-Modules\/Modules","children":[]}]},{"id":null,"title":"Sub G Modules","title_en":"Sub G Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Sub-G-Modules\/All","children":[{"id":null,"title":"Modules","title_en":"Modules","href":"https:\/\/beta.techdesignlink.com\/market\/product\/Sub-G-Modules\/Modules","children":[]}]},{"id":null,"title":"GPS and GNSS Receiver Modules","title_en":... (set the log level to DEBUG or TRACE to see the full content) 
  </msg>
-<msg timestamp="20210308 11:29:35.346" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'beta.techdesignlink.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20210308 11:37:30.541" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'beta.techdesignlink.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20210308 11:29:35.346" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210308 11:29:34.186" endtime="20210308 11:29:35.346"></status>
+<msg timestamp="20210308 11:37:30.541" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210308 11:37:29.219" endtime="20210308 11:37:30.541"></status>
 </kw>
 <kw name="Dumps" library="json">
 <doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
@@ -192,34 +192,71 @@
 <assign>
 <var>${json}</var>
 </assign>
-<msg timestamp="20210308 11:29:35.350" level="INFO">${json} = {"ReturnCode": 0, "status": "OK", "data": {"manufacturers": [{"id": null, "title": "AMAZING", "title_en": "AMAZING", "href": "https://beta.techdesignlink.com/market/amazingIC", "children": []}, {"id":...</msg>
-<status status="PASS" starttime="20210308 11:29:35.347" endtime="20210308 11:29:35.350"></status>
+<msg timestamp="20210308 11:37:30.545" level="INFO">${json} = {"ReturnCode": 0, "status": "OK", "data": {"manufacturers": [{"id": null, "title": "AMAZING", "title_en": "AMAZING", "href": "https://beta.techdesignlink.com/market/amazingIC", "children": []}, {"id":...</msg>
+<status status="PASS" starttime="20210308 11:37:30.542" endtime="20210308 11:37:30.545"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${json}</arg>
 </arguments>
-<status status="PASS" starttime="20210308 11:29:35.350" endtime="20210308 11:29:35.351"></status>
+<status status="PASS" starttime="20210308 11:37:30.545" endtime="20210308 11:37:30.546"></status>
 </kw>
-<status status="PASS" starttime="20210308 11:29:34.185" endtime="20210308 11:29:35.352" critical="yes"></status>
+<status status="PASS" starttime="20210308 11:37:29.218" endtime="20210308 11:37:30.546" critical="yes"></status>
+</test>
+<test id="s1-t3" name="API test:get invetory Info">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>tdcv1</arg>
+<arg>https://b2bapi-beta.techdesignlink.com</arg>
+</arguments>
+<msg timestamp="20210308 11:37:30.547" level="INFO">Creating Session using : alias=tdcv1, url=https://b2bapi-beta.techdesignlink.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210308 11:37:30.547" endtime="20210308 11:37:30.548"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>tdcv1</arg>
+<arg>/api/v1/product-inventory</arg>
+<arg>expected_status=200</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20210308 11:37:31.451" level="INFO">GET Request : url=https://b2bapi-beta.techdesignlink.com/api/v1/product-inventory 
+ path_url=/api/v1/product-inventory 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210308 11:37:31.451" level="INFO">GET Response : url=https://b2bapi-beta.techdesignlink.com/api/v1/product-inventory 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Mon, 08 Mar 2021 03:37:31 GMT', 'Server': 'Apache/2.4.43 () OpenSSL/1.0.2k-fips', 'X-Powered-By': 'PHP/7.4.7', 'Cache-Control': 'no-cache, private', 'Connection': 'Upgrade, Keep-Alive', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000', 'Keep-Alive': 'timeout=5, max=100', 'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json'} 
+ body={"ReturnCode":40101,"msg":"Unauthenticated."} 
+ </msg>
+<msg timestamp="20210308 11:37:31.451" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'b2bapi-beta.techdesignlink.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210308 11:37:31.453" level="FAIL">Url: https://b2bapi-beta.techdesignlink.com/api/v1/product-inventory Expected status: 401 != 200</msg>
+<status status="FAIL" starttime="20210308 11:37:30.548" endtime="20210308 11:37:31.453"></status>
+</kw>
+<status status="FAIL" starttime="20210308 11:37:30.547" endtime="20210308 11:37:31.454" critical="yes">Url: https://b2bapi-beta.techdesignlink.com/api/v1/product-inventory Expected status: 401 != 200</status>
 </test>
 <kw name="Delete All Sessions" library="RequestsLibrary" type="teardown">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20210308 11:29:35.353" level="INFO">Delete All Sessions</msg>
-<status status="PASS" starttime="20210308 11:29:35.352" endtime="20210308 11:29:35.353"></status>
+<msg timestamp="20210308 11:37:31.455" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20210308 11:37:31.455" endtime="20210308 11:37:31.455"></status>
 </kw>
-<status status="PASS" starttime="20210308 11:29:33.521" endtime="20210308 11:29:35.353"></status>
+<status status="FAIL" starttime="20210308 11:37:28.617" endtime="20210308 11:37:31.456"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0">Critical Tests</stat>
-<stat pass="2" fail="0">All Tests</stat>
+<stat pass="2" fail="1">Critical Tests</stat>
+<stat pass="2" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" id="s1" name="Sample Test">Sample Test</stat>
+<stat pass="2" fail="1" id="s1" name="Sample Test">Sample Test</stat>
 </suite>
 </statistics>
 <errors>
