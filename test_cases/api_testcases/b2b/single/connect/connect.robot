@@ -1,6 +1,6 @@
 *** Settings ***
-Resource            ../../../tdc_b2b_host.robot
-Resource            ../../../../../config/beta_setting.robot
+Resource            ./../../../tdc_b2b_host.robot
+Resource            ./../../../../../config/beta_setting.robot
 Library             JSONLibrary
 Library             String
 
@@ -10,12 +10,12 @@ ${path}             /api/v1/connect
 
 *** Test Cases ***
 Test case1: Get connect status 200
-    ${resp}         connect_get             200              ${TOKEN}
+    ${resp}         connect_get             200              ${B2B_TOKEN}
     log to console  ${resp.json()}
-    connect_data_verify                      ${resp.json()}
+    connect_data_verify                     ${resp.json()}
 
 Test case2: Get connect status 40101 (Unauthenticated)
-    ${resp}         connect_get             401              ${ERROR_TOKEN}
+    ${resp}         connect_get             401              ${B2B_ERR_TOKEN}
     connect_error_data_verify_(unauth)         ${resp.json()}
 
 

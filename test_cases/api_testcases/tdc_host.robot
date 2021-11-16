@@ -19,3 +19,8 @@ request_post
     ${resp}=        _http_post   ${host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}    ${cookies}
     [Return]        ${resp}
 
+request_post_need_head
+    [Arguments]     ${path}    ${datas}   ${expectedStatus}   ${headers}        ${cookies}=None
+    ${params}=      create dictionary
+    ${resp}=        _http_post   ${host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}    ${cookies}
+    [Return]        ${resp}

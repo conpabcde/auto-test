@@ -1,22 +1,23 @@
 *** Settings ***
-Resource            ./resources/Public/http_request.robot
+Resource             ./resources/Public/http_request.robot
+Resource             ../../config/beta_setting.robot
 
 *** Variables ***
 #${host}              https://b2bapi-beta.techdesignlink.com
-${host}              https://ssr.tdc.com
+#${host}              https://ssr.tdc.com
 
 *** Keywords ***
 request_get
     [Arguments]      ${path}    ${datas}    ${expectedStatus}    ${headers}=None    ${cookies}=None
     ${params}=       create dictionary
-    ${resp}=         _http_get    ${host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}    ${cookies}
+    ${resp}=         _http_get    ${b2b_host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}    ${cookies}
     [Return]         ${resp}
 
 *** Keywords ***
 request_post
     [Arguments]      ${path}    ${datas}    ${expectedStatus}    ${headers}=None    ${cookies}=None
     ${params}=       create dictionary
-    ${resp}=         _http_post   ${host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}     ${cookies}
+    ${resp}=         _http_post   ${b2b_host}    ${path}    ${datas}    ${expectedStatus}    ${params}    ${headers}     ${cookies}
     [Return]         ${resp}
 
 #*** Test Cases ***

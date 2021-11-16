@@ -19,7 +19,7 @@ Test case1: Login successful
 login
     [Arguments]     ${expectedStatus}    ${aacount}    ${password}    ${remember}    ${timezone}
     ${datas}        create dictionary    email=${account}    password=${password}    remember=${remember}    timezone=${timezone}
-    #${header}       create dictionary
+    ${header}       create dictionary
     ${resp}=        request_post         ${path}     ${datas}     ${expectedStatus}     #${header}
     [Return]        ${resp}
 

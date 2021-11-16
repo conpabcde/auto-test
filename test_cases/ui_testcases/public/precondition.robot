@@ -13,7 +13,7 @@ ${INPUT_PASSWORD}    xpath=//input[@id='mat-input-1']
 
 *** Keywords ***
 Open Browser To Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Open Browser    ${HOST}    ${BROWSER}
     click button    ${BTN_AGREE_COOKIE}
     wait until element is visible  ${BTN_LOGIN}
 
@@ -35,6 +35,3 @@ Login By
 
 Click Home Page Button
     click element    ${BTN_HOMEPAGE}
-
-
-

@@ -107,7 +107,7 @@ product-inventory_post_data_verify
 get_nth_result_data
     [Arguments]     ${index}
     ${resp}         product-inventory_get  200
-    ${data}         Get Value From Json    ${resp.json()}    $..results[${index}]
+    ${data}         Get Value From Json  ${resp.json()}    $..results[${index}]
     ${data}         convert to string      ${data}
     ${data}         Replace String         ${data}           '         "
     [Return]        ${data}
