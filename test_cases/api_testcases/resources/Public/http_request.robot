@@ -1,69 +1,66 @@
 *** Settings ***
-Library          RequestsLibrary
-Library          Collections
-Library          String
-Library          HttpLibrary.HTTP
+Library             RequestsLibrary
+Library             Collections
+Library             String
+Resource            ../../../../config/env_config.robot
 
 *** Keywords ***
 _http_get
-    [Arguments]    ${host}    ${path}    ${datas}  ${expectedStatus}   ${params}=${EMPTY}   ${headers}=None      ${cookies}=None    ${timeout}=30
-    #set encoding
-    #Evaluate    reload(sys)    sys
-    #Evaluate    sys.setdefaultencoding("utf-8")    sys
+    [Arguments]     ${host}  ${path}  ${datas}  ${expected_status}  ${params}=${EMPTY}  ${headers}=None  ${cookies}=None
+    ...  ${timeout}=30
     #set header of request
-    ${headerDict}    Create Dictionary   Content-Type=application/json
-    Run keyword if    ${headers}==${None}    log to console    not add header
-    ...    ELSE    add_header    ${headers}    ${headerDict}
+    ${header_dict}  create dictionary  Content-Type=application/json
+    run keyword if  ${headers}==${None}  log to console  not add header
+    ...  ELSE  add_header  ${headers}  ${header_dict}
     #set cookie
-    ${cookieDict}    Create dictionary
-    Run keyword if    ${cookies}==${None}    Log    not add cookie
-    ...    ELSE    add_cookies    ${cookies}    ${cookieDict}
+    ${cookie_dict}  create dictionary
+    run keyword if  ${cookies}==${None}  Log  not add cookie
+    ...  ELSE  add_cookies  ${cookies}  ${cookie_dict}
     # create session
-    Create Session    tdc    ${host}    timeout=${timeout}    cookies=${cookieDict}
+    create session  tdc  ${host}  timeout=${timeout}  cookies=${cookie_dict}
     # send GET request
-    ${resp}=     GET On Session  tdc    ${path}     headers=${headerDict}    params=${params}    expected_status=${expectedStatus}
-    [Return]    ${resp}
+    ${resp}         get on session  tdc  ${path}  headers=${header_dict}  params=${params}
+    ...  expected_status=${expected_status}
+    [Return]        ${resp}
 
 *** Keywords ***
 _http_post
-    [Arguments]    ${host}    ${path}    ${datas}   ${expectedStatus}    ${params}=${EMPTY}    ${headers}=None   ${cookies}=None    ${timeout}=30
-    #set endcoding
-    #Evaluate    reload(sys)    sys
-    #Evaluate    sys.setdefaultendcoding("utf-8")    sys
+    [Arguments]     ${host}  ${path}  ${datas}  ${expected_status}  ${params}=${EMPTY}  ${headers}=None  ${cookies}=None
+    ...  ${timeout}=30
     #set header of request
-    ${headerDict}    create dictionary    Content-Type=application/json
-    Run keyword if    ${headers}==${None}    Log to console    not add header
-    ...    ELSE    add_header    ${headers}    ${headerDict}
-    # ...    ELSE      log to console   solo test
+    ${header_dict}  create dictionary  Content-Type=application/json
+    run keyword if  ${headers}==${None}  Log to console  not add header
+    ...  ELSE  add_header  ${headers}  ${header_dict}
     #set cookies
-    ${cookieDict}    create dictionary
-    Run keyword if    ${cookies}==${None}    Log     not add cookies
-    ...    ELSE    add_cookies    ${cookies}    ${cookieDict}
+    ${cookie_dict}  create dictionary
+    run keyword if  ${cookies}==${None}  Log  not add cookies
+    ...  ELSE  add_cookies  ${cookies}  ${cookie_dict}
     #set session
-    Create Session    tdc    ${host}    timeout=${timeout}    cookies=${cookieDict}
+    create session  tdc  ${host}  timeout=${timeout}  cookies=${cookie_dict}
     #send the request
-    log to console      ${datas}
-    ${resp}    post on session    tdc    ${path}    data=${datas}    headers=${headerDict}    params=${params}   expected_status=${expectedStatus}
-    [Return]   ${resp}
+    log to console  ${datas}
+    ${resp}         post on session  tdc  ${path}  data=${datas}  headers=${header_dict}  params=${params}
+    ...  expected_status=${expected_status}
+    [Return]        ${resp}
 
 *** Keywords ***
 add_cookies
-    [Arguments]    ${cookies}    ${cookiedict}
+    [Arguments]     ${cookies}  ${cookie_dict}
     [Documentation]    *set to handle cookie*
-    @{cookieList}=    Split String    ${cookies}    ;
-    ${cookieSplit}    create list
-    FOR    ${cookie}    IN    @{cookieList}
-           Run Keyword If    ${cookie}==${None}    Exit For Loop
-           ${cookieSplit}=    Split String    ${cookie}    =
+    @{cookie_list}  split string  ${cookies}  ;
+    ${cookie_split}  create list
+    FOR  ${cookie}  IN  @{cookie_list}
+        run keyword if  ${cookie}==${None}  Exit For Loop
+        ${cookie_split}  split string  ${cookie}
     END
-    Set To Dictionary   ${cookieDict}    ${cookieSplit}[0]=${cookieSplit}[1]
+    set to dictionary  ${cookie_dict}  ${cookie_split}[0]=${cookie_split}[1]
 
 *** Keywords ***
 add_header
-    [Arguments]    ${dict1}    ${dict2}
-    [Documentation]   *iterate dict1, and make dict1 value add in dict2*
-    Log     add header from user in request
-    ${items}   Get Dictionary Items    ${dict1}
-    FOR    ${index}    ${key}    ${value}    IN ENUMERATE    @{items}
-           Set To Dictionary    ${dict2}    ${key}=${value}
+    [Arguments]     ${dict1}    ${dict2}
+    [Documentation]  *iterate dict1, and make dict1 value add in dict2*
+    log             add header from user in request
+    ${items}        get dictionary items  ${dict1}
+    FOR  ${index}  ${key}  ${value}  IN ENUMERATE  @{items}
+        set to dictionary  ${dict2}  ${key}=${value}
     END
