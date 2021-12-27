@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.8 on darwin)" generated="20211224 17:34:50.819" rpa="false">
+<suite id="s1" name="Tdc Login" source="/Users/solomentchu/Desktop/auto-test/test_cases/api_testcases/internal/single/login/tdc_login.robot">
+<test id="s1-t1" name="login with odd account">
+<kw name="login">
+<arguments>
+<arg>400</arg>
+<arg>abcde</arg>
+<arg>${BUYER_PASSWORD}</arg>
+<arg>true</arg>
+<arg>+8</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Start to login ${account}.</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.180" endtime="20211224 17:34:51.180"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>email=${account}</arg>
+<arg>password=${password}</arg>
+<arg>remember=${remember}</arg>
+<arg>timezone=${timezone}</arg>
+</arguments>
+<assign>
+<var>${datas}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.181" level="INFO">${datas} = {'email': 'abcde', 'password': '111111', 'remember': 'true', 'timezone': '+8'}</msg>
+<status status="PASS" starttime="20211224 17:34:51.180" endtime="20211224 17:34:51.181"></status>
+</kw>
+<kw name="convert data for html router" library="utility_tool">
+<doc>convert the data to json format for post or get api.</doc>
+<arguments>
+<arg>${datas}</arg>
+</arguments>
+<assign>
+<var>${datas}</var>
+</assign>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Start to convert data ${data_str} for html router.</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.181" endtime="20211224 17:34:51.182"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${data_str}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.182" level="INFO">${data} = {'email': 'abcde', 'password': '111111', 'remember': 'true', 'timezone': '+8'}</msg>
+<status status="PASS" starttime="20211224 17:34:51.182" endtime="20211224 17:34:51.182"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>'</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.182" level="INFO">${data} = {"email": "abcde", "password": "111111", "remember": "true", "timezone": "+8"}</msg>
+<status status="PASS" starttime="20211224 17:34:51.182" endtime="20211224 17:34:51.182"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Next step.</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.182" endtime="20211224 17:34:51.183"></status>
+</kw>
+<msg timestamp="20211224 17:34:51.183" level="INFO">${datas} = {"email": "abcde", "password": "111111", "remember": "true", "timezone": "+8"}</msg>
+<status status="PASS" starttime="20211224 17:34:51.181" endtime="20211224 17:34:51.183"></status>
+</kw>
+<kw name="request_post" library="tdc_host">
+<arguments>
+<arg>${path}</arg>
+<arg>${datas}</arg>
+<arg>${expectedStatus}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.184" level="INFO">${params} = {}</msg>
+<status status="PASS" starttime="20211224 17:34:51.183" endtime="20211224 17:34:51.184"></status>
+</kw>
+<kw name="_http_post" library="http_request">
+<arguments>
+<arg>${host}</arg>
+<arg>${path}</arg>
+<arg>${datas}</arg>
+<arg>${expectedStatus}</arg>
+<arg>${params}</arg>
+<arg>${headers}</arg>
+<arg>${cookies}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header_dict}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.184" level="INFO">${header_dict} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20211224 17:34:51.184" endtime="20211224 17:34:51.184"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${headers}==${None}</arg>
+<arg>Log to console</arg>
+<arg>not add header</arg>
+<arg>ELSE</arg>
+<arg>add_header</arg>
+<arg>${headers}</arg>
+<arg>${header_dict}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>not add header</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.185" endtime="20211224 17:34:51.185"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.185" endtime="20211224 17:34:51.185"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>${cookie_dict}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.185" level="INFO">${cookie_dict} = {}</msg>
+<status status="PASS" starttime="20211224 17:34:51.185" endtime="20211224 17:34:51.185"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${cookies}==${None}</arg>
+<arg>Log</arg>
+<arg>not add cookies</arg>
+<arg>ELSE</arg>
+<arg>add_cookies</arg>
+<arg>${cookies}</arg>
+<arg>${cookie_dict}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>not add cookies</arg>
+</arguments>
+<msg timestamp="20211224 17:34:51.186" level="INFO">not add cookies</msg>
+<status status="PASS" starttime="20211224 17:34:51.186" endtime="20211224 17:34:51.186"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.185" endtime="20211224 17:34:51.186"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>tdc</arg>
+<arg>${host}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>cookies=${cookie_dict}</arg>
+</arguments>
+<msg timestamp="20211224 17:34:51.186" level="INFO">Creating Session using : alias=tdc, url=https://ssr.tdc.com, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20211224 17:34:51.186" endtime="20211224 17:34:51.187"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${datas}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.187" endtime="20211224 17:34:51.187"></status>
+</kw>
+<kw name="Post On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>tdc</arg>
+<arg>${path}</arg>
+<arg>data=${datas}</arg>
+<arg>headers=${header_dict}</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected_status}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.277" level="INFO">POST Request : url=https://ssr.tdc.com/sys/login 
+ path_url=/sys/login 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '78'} 
+ body={"email": "abcde", "password": "111111", "remember": "true", "timezone": "+8"} 
+ </msg>
+<msg timestamp="20211224 17:34:51.277" level="INFO">POST Response : url=https://ssr.tdc.com/sys/login 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx', 'Date': 'Fri, 24 Dec 2021 09:34:51 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'PHP/7.4.25', 'Cache-Control': 'no-cache, private', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IldDRkd4bmhFUEhtQWxCQW1nVFdlc1E9PSIsInZhbHVlIjoiTFJTamxETm5tS3R3VVB4RG1FL2QyUk9jUW1ZM2h2T3BPVGY5WC9nL2NWdUxJd1BhNEdrZDFkNFc0Umd1VzRZdmlsYkJBWXVkM1dHTnRWa2Y0amNuZ3JZc1FZUWJoMkY2ZzRKVzhNZEo2dDUzZFZOMDVudnlKSlFseitlWERvd3AiLCJtYWMiOiI4OWRkNWZlNmE4Y2Y0YmJlNjFjYzAzMmNiZTFiMGM3YTgwODY4ZDY4MDNiM2IyZjFkNGMzYWJmMTVhOGZhNWVjIn0%3D; expires=Fri, 24-Dec-2021 11:34:51 GMT; Max-Age=7200; path=/; secure; httponly, laravel_session=eyJpdiI6IjI3bCtPQ05GWVJGTmlIemtpS0dGVnc9PSIsInZhbHVlIjoiQW5YRnA5ZUdBMFZ5ZGk0NUpFT0VsbjhxYytmT29kYk5abFZiZnhTM2ptdE10Q2pVbFRxRVo1RzhUbE5tRmFKY050VWZZb0JmUGlwbGNlQW5SWG9kMmtRbTd6WW5kUEthYnlsdzBWclZGVGswL1BGNHUvZWN4U2x1S2EwYUZNVXMiLCJtYWMiOiIxZTZkYmZiZTMyZWE4OWVkNWNiOGJmYjdkNGJlYWY5Yjc5MjM4NmJiNWJmNWIxOTZmNWVmNjhhN2EyNDYwMDE0In0%3D; expires=Fri, 24-Dec-2021 11:34:51 GMT; Max-Age=7200; path=/; secure; httponly; httponly, _tdc_id=eyJpdiI6IkxncmZobFJBN3lqdGkwdk93eUljQ0E9PSIsInZhbHVlIjoieXFFeDdITkNtM2ZWbFBhUkpRSVc3N2w2dS9TT3piL1E5YS9nZ3FidVNDWmVSSHZMeFdpbXdRdisxR0lYMnZ3UnFHdE9rbG54YUJ2Vkl3UUpJK0picklQMUFTK1d3bElEVmN1TmlTdzlYUUU9IiwibWFjIjoiMGFhMTQ5ZGY5YWM2MGYyY2FlYWQzMzhjM2JkMWZhYTJmOWFkN2Q1ZDE3NTQzNmU0MDM2MmJlMjU4NDE2YmY1YSJ9; expires=Wed, 23-Dec-2026 09:34:51 GMT; Max-Age=157680000; path=/; secure; httponly; httponly, _tdc_pri=eyJpdiI6InRIVTBZV3V1K2dJNytyK1dwZmlSaUE9PSIsInZhbHVlIjoiVFN0NExmWXZFbkw0aWdTbDFnSmxYRE1wRWVnWTJDM0JDRXU2OTlPcktLNkI0RDluZVY5V1MwRmkwVnBSNk83UCIsIm1hYyI6ImJhNTk5N2NmYTVmZDhlMmRhZDg2MDExMzk5NmY5MmRiNmZmOWVhNTQzYzJjMmE4NTBlODU0ZGFkNzAyM2ZhODYifQ%3D%3D; expires=Wed, 23-Dec-2026 09:34:51 GMT; Max-Age=157680000; path=/; secure; httponly; httponly, _tdc_locale=en; expires=Wed, 23-Dec-2026 09:34:51 GMT; Max-Age=157680000; path=/; secure; httponly; secure'} 
+ body={"ReturnCode":40003,"msg":"The given data was invalid.","data":{"email":["The email must be a valid email address."]}} 
+ </msg>
+<msg timestamp="20211224 17:34:51.277" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'ssr.tdc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211224 17:34:51.277" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20211224 17:34:51.187" endtime="20211224 17:34:51.277"></status>
+</kw>
+<msg timestamp="20211224 17:34:51.278" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20211224 17:34:51.184" endtime="20211224 17:34:51.278"></status>
+</kw>
+<msg timestamp="20211224 17:34:51.278" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20211224 17:34:51.183" endtime="20211224 17:34:51.278"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Next step.</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.278" endtime="20211224 17:34:51.278"></status>
+</kw>
+<msg timestamp="20211224 17:34:51.278" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20211224 17:34:51.180" endtime="20211224 17:34:51.278"></status>
+</kw>
+<kw name="generate error respond for less data">
+<doc>according to email, password, timezone being empty or not generate different respond</doc>
+<arguments>
+<arg>False</arg>
+<arg>True</arg>
+<arg>True</arg>
+</arguments>
+<assign>
+<var>${resp_check}</var>
+</assign>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>email</arg>
+<arg>password</arg>
+<arg>timezone</arg>
+</arguments>
+<assign>
+<var>${key_list}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.279" level="INFO">${key_list} = ['email', 'password', 'timezone']</msg>
+<status status="PASS" starttime="20211224 17:34:51.279" endtime="20211224 17:34:51.279"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${timezone}</arg>
+</arguments>
+<assign>
+<var>${value_list}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.279" level="INFO">${value_list} = ['False', 'True', 'True']</msg>
+<status status="PASS" starttime="20211224 17:34:51.279" endtime="20211224 17:34:51.279"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>The</arg>
+</arguments>
+<assign>
+<var>${the}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.280" level="INFO">${the} = The</msg>
+<status status="PASS" starttime="20211224 17:34:51.279" endtime="20211224 17:34:51.280"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>field is required.</arg>
+</arguments>
+<assign>
+<var>${field_is_required}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.280" level="INFO">${field_is_required} = field is required.</msg>
+<status status="PASS" starttime="20211224 17:34:51.280" endtime="20211224 17:34:51.280"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.280" level="INFO">${data} = {}</msg>
+<status status="PASS" starttime="20211224 17:34:51.280" endtime="20211224 17:34:51.280"></status>
+</kw>
+<kw name="${i} IN RANGE [ 3 ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${str_error}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.281" level="INFO">${str_error} = []</msg>
+<status status="PASS" starttime="20211224 17:34:51.280" endtime="20211224 17:34:51.281"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>append to list</arg>
+<arg>${str_error}</arg>
+<arg>${the} ${key_list}[${i}] ${field_is_required}</arg>
+</arguments>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${str_error}</arg>
+<arg>${the} ${key_list}[${i}] ${field_is_required}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.281" endtime="20211224 17:34:51.281"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.281" endtime="20211224 17:34:51.281"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>set to dictionary</arg>
+<arg>${data}</arg>
+<arg>${key_list}[${i}]</arg>
+<arg>${str_error}</arg>
+</arguments>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>${key_list}[${i}]</arg>
+<arg>${str_error}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.282" endtime="20211224 17:34:51.282"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.281" endtime="20211224 17:34:51.282"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.280" endtime="20211224 17:34:51.282"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${str_error}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.283" level="INFO">${str_error} = []</msg>
+<status status="PASS" starttime="20211224 17:34:51.282" endtime="20211224 17:34:51.283"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>append to list</arg>
+<arg>${str_error}</arg>
+<arg>${the} ${key_list}[${i}] ${field_is_required}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.283" endtime="20211224 17:34:51.283"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>set to dictionary</arg>
+<arg>${data}</arg>
+<arg>${key_list}[${i}]</arg>
+<arg>${str_error}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.283" endtime="20211224 17:34:51.283"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.282" endtime="20211224 17:34:51.283"></status>
+</kw>
+<kw name="${i} = 2" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${str_error}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.284" level="INFO">${str_error} = []</msg>
+<status status="PASS" starttime="20211224 17:34:51.283" endtime="20211224 17:34:51.284"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>append to list</arg>
+<arg>${str_error}</arg>
+<arg>${the} ${key_list}[${i}] ${field_is_required}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.284" endtime="20211224 17:34:51.284"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${value_list}[${i}]</arg>
+<arg>set to dictionary</arg>
+<arg>${data}</arg>
+<arg>${key_list}[${i}]</arg>
+<arg>${str_error}</arg>
+</arguments>
+<status status="PASS" starttime="20211224 17:34:51.284" endtime="20211224 17:34:51.284"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.283" endtime="20211224 17:34:51.284"></status>
+</kw>
+<status status="PASS" starttime="20211224 17:34:51.280" endtime="20211224 17:34:51.284"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>40003</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.285" level="INFO">${return_code} = 40003</msg>
+<status status="PASS" starttime="20211224 17:34:51.284" endtime="20211224 17:34:51.285"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>The given data was invalid.</arg>
+</arguments>
+<assign>
+<var>${msg}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.296" level="INFO">${msg} = The given data was invalid.</msg>
+<status status="PASS" starttime="20211224 17:34:51.285" endtime="20211224 17:34:51.296"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>ReturnCode=${return_code}</arg>
+<arg>msg=${msg}</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20211224 17:34:51.296" level="INFO">${result} = {'ReturnCode': 40003, 'msg': 'The given data was invalid.', 'data': {'email': ['The email field is required.']}}</msg>
+<status status="PASS" starttime="20211224 17:34:51.296" endtime="20211224 17:34:51.296"></status>
+</kw>
+<msg timestamp="20211224 17:34:51.297" level="INFO">${resp_check} = {'ReturnCode': 40003, 'msg': 'The given data was invalid.', 'data': {'email': ['The email field is required.']}}</msg>
+<status status="PASS" starttime="20211224 17:34:51.278" endtime="20211224 17:34:51.297"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${empty}</arg>
+<arg>${resp.json()}</arg>
+</arguments>
+<msg timestamp="20211224 17:34:51.297" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'dict'&gt;</msg>
+<msg timestamp="20211224 17:34:51.297" level="FAIL"> != {'ReturnCode': 40003, 'msg': 'The given data was invalid.', 'data': {'email': ['The email must be a valid email address.']}}</msg>
+<status status="FAIL" starttime="20211224 17:34:51.297" endtime="20211224 17:34:51.297"></status>
+</kw>
+<status status="FAIL" starttime="20211224 17:34:51.179" endtime="20211224 17:34:51.297" critical="yes"> != {'ReturnCode': 40003, 'msg': 'The given data was invalid.', 'data': {'email': ['The email must be a valid email address.']}}</status>
+</test>
+<doc>Suite description</doc>
+<status status="FAIL" starttime="20211224 17:34:50.820" endtime="20211224 17:34:51.298"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Tdc Login">Tdc Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
