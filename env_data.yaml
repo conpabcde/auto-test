@@ -1,4 +1,0 @@
-host: "https://ssr.tdc.com"
-b2b_host: "https://ssr.tdc.com"
-b2b_token: "Bearer "
-b2b_err_token: "Bearer   "
